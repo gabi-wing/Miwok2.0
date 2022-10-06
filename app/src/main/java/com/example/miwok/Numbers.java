@@ -2,10 +2,14 @@ package com.example.miwok;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaCodec;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Numbers extends AppCompatActivity {
 
@@ -14,7 +18,24 @@ public class Numbers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        String[] englishNumbers = new String[]{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
+        ArrayList<String> words = new ArrayList<>();
+        words.add("one");
+        words.add("two");
+        words.add("three");
+        words.add("four");
+        words.add("five");
+        words.add("six");
+        words.add("seven");
+        words.add("eight");
+        words.add("nine");
+        words.add("ten");
 
+        LinearLayout rootView=(LinearLayout)findViewById(R.id.rootView);
+        for (int index = 0; index< words.size(); index++){
+            TextView wordView = new TextView(this);
+            wordView.setText(words.get(index));
+            rootView.addView(wordView);
+
+        }
     }
 }
